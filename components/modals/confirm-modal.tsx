@@ -31,7 +31,6 @@ return (
                     Are you sure?
                 </AlertDialogTitle>
                 <AlertDialogDescription>This action can not be undone</AlertDialogDescription>
-
             </AlertDialogHeader>
             <AlertDialogFooter>
                 <AlertDialogCancel>Cancel</AlertDialogCancel>
