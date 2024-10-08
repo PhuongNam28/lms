@@ -1,6 +1,6 @@
 import { getProgress } from "@/actions/get-progress";
 import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs/server"; // Corrected import path for auth
+import { auth } from "@clerk/nextjs/server"; 
 import { redirect } from "next/navigation";
 import { CourseNavbar } from "./_components/course-navbar";
 import { CourseSidebar } from "./_components/course-sidebar";

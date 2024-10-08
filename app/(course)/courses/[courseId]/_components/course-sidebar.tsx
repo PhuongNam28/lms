@@ -1,4 +1,5 @@
 import ChapterAccessForm from "@/app/(dashboard)/(routes)/teacher/courses/[courseId]/chapters/[chapterId]/_components/chapter-access-form";
+import { CourseProgress } from "@/components/course-progress";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import { Chapter, Course, UserProgress } from "@prisma/client";
@@ -33,7 +34,15 @@ export const CourseSidebar = async ({ course, progressCount }: CourseSidebarProp
     <div className="h-full border-r flex flex-col overflow-y-auto shadow-sm">
       <div className="p-8 flex-col border-b">
         <h1 className="font-semibold">{course.title}</h1>
-        {/* Check purchase */}
+        {purchase && (
+          <div className = "mt-10">
+              <CourseProgress
+                variant ="success"
+                value = {progressCount}
+
+              />
+          </div>
+        ) }
       </div>
       <div className="flex flex-col w-full">
         {/* Add curly braces around map */}

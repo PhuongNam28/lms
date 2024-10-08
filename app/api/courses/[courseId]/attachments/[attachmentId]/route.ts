@@ -2,13 +2,14 @@ import { NextResponse } from 'next/server';
 import { Attachment } from '@prisma/client';
 import { auth } from '@clerk/nextjs/server';
 import {db} from "@/lib/db"
+import { isTeacher } from '@/lib/teacher';
 export async function DELETE(
     req: Request,
     {params}: {params: {courseId: string, attachmentId: string}}
 ){
 try {
     const {userId} = auth()
-    if(!userId) {
+    if(!userId || isTeacher(userId)) {
         return new NextResponse("Unauthorized",{status: 401})
     }
     const courseOwner = await db.course.findUnique({
